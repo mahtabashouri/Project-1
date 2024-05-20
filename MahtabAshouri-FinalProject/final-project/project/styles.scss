@@ -1,0 +1,535 @@
+@import "Fonts.scss";
+$grey: #847c71;
+$yellow: #ffba1f;
+* {
+    padding: 0;
+    margin: 0;
+    direction: rtl;
+    scroll-behavior: smooth !important;
+}
+
+p {
+    margin-bottom: 0 !important;
+}
+
+body {
+    font-family: yekan !important;
+    font-weight: 500;
+}
+
+.header {
+    width: 100%;
+    z-index: 999;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 70px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
+    .right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        >* {
+            margin: 10px;
+        }
+        .logo {
+            cursor: pointer;
+            margin: 0;
+            font-size: 30px;
+
+        }
+        .searchbox {
+            background-color: #f0f0f1;
+            width: 560px;
+            border-radius: 6px;
+            float: right;
+            padding: 13px;
+            padding-right: 40px;
+            border: none;
+            font-size: 14px;
+            outline: none;
+            color: rgba(53, 48, 48, 0.993);
+        }
+        // .searchbox:focus {}
+        .searchbox::placeholder {
+            font-size: 14px;
+            margin-right: 20px;
+            color: rgb(168, 167, 167);
+        }
+    }
+    .left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .button {
+            display: flex;
+            .btn {
+                border: 1px solid $grey;
+                background-color: #fff;
+                font-size: 12px;
+                p {
+                    margin: 0;
+                    padding-left: 5px;
+                }
+                i {
+                    font-size: 14px;
+                    margin: 0 6px 0 0;
+                }
+            }
+            margin-left: 14px;
+        }
+        .svg {
+            padding-right: 16px;
+            border-right: 1px solid $grey;
+        }
+    }
+}
+
+.op-none {
+    top: 0px !important;
+}
+
+.navigation {
+    font-size: 20px;
+    z-index: 10;
+    width: 100%;
+    height: 45px;
+    background-color: white;
+    display: flex;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 70px;
+    justify-content: space-between;
+    padding: 0 16px;
+    transition: 0.3s ease-out;
+    box-shadow: 0 7px 8px 0px rgba(0, 0, 0, 0.1);
+    //font-size: 20px;
+    .right {
+        ul {
+            display: flex;
+            list-style-type: none;
+            margin-bottom: 0;
+            height: 100%;
+            .items {
+                font-size: 13px;
+                bottom: 0;
+                position: relative;
+                padding: 10px 14px;
+                height: 100%;
+                text-decoration: none;
+                cursor: pointer;
+                color: rgb(97, 97, 97);
+                overflow: hidden;
+                &::after {
+                    content: '';
+                    width: 100%;
+                    height: 2px;
+                    position: absolute;
+                    top: 90%;
+                    right: -400px;
+                    transition: 0.3s;
+                    background-color: $red !important;
+                }
+                &:hover::after {
+                    right: 0;
+                }
+                i {
+                    padding-left: 4px;
+                    color: #75777a;
+                }
+                &:first-child {
+                    i {
+                        color: rgba(0, 0, 0, 0.747);
+                    }
+                }
+            }
+        }
+    }
+    .left {
+        cursor: pointer;
+        font-size: 14px;
+        i {
+            font-size: 18px;
+        }
+        display: flex;
+        .button {
+            display: flex;
+            align-items: center;
+            p {
+                margin-bottom: 0;
+                padding: 0 10px;
+            }
+        }
+    }
+}
+
+.dropdown {
+    overflow: unset !important;
+}
+
+.dropdown-content {
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    position: absolute;
+    top: calc( 100% + 0px);
+    right: 0;
+    z-index: 100000;
+    border-radius: 0 0 10px 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    &.drop1 {
+        text-align: right;
+        width: auto !important;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+    }
+    .column {
+        width: 240px;
+        height: auto;
+        flex-direction: column;
+        &.col3 {
+            border-radius: 10px;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            width: 230px !important;
+            height: 300px;
+            background-size: cover;
+        }
+        ul {
+            .drop-items {
+                text-align: right;
+                display: flex;
+                font-size: 14px;
+                &.f-15 {
+                    font-size: 15px;
+                    margin-bottom: 10px;
+                }
+                &.bold {
+                    font-weight: 900;
+                    font-size: 16px;
+                }
+                p {
+                    margin-bottom: 10px !important;
+                }
+                .flasher {
+                    margin-right: 10px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    .top {
+        height: 50%;
+        width: 100%;
+        padding: 50px 10px 10px;
+        text-align: right;
+        p {
+            margin: 5px;
+            font-size: 14px;
+            list-style-type: square;
+        }
+    }
+    .bot {
+        padding: 10px 10px 40px;
+        height: 50%;
+        li {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+    }
+    li:hover {
+        color: rgb(22, 20, 20);
+        text-shadow: 0px 0px 2px rgb(87, 87, 87);
+    }
+}
+
+.dropdown:hover .dropdown-content {
+    visibility: visible;
+    opacity: 1;
+}
+
+.dark {
+    filter: brightness(0.4);
+}
+
+.slides {
+    height: 480px;
+    display: flex;
+    width: 100%;
+    background-color: rgb(236, 236, 236);
+    .right {
+        width: 67%;
+        height: 100%;
+        padding: 16px;
+        position: relative;
+        .img {
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            // box-shadow: 0px 0px 10px 0px #969699;
+        }
+    }
+    .left {
+        padding: 16px;
+        padding-right: 0;
+        width: 33%;
+        height: 100%;
+        .top,
+        .bot {
+            cursor: pointer;
+            height: 216px;
+            width: 100%;
+            background-color: #166694;
+            border-radius: 16px;
+            // box-shadow: 0px 0px 10px 0px #969699;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .top {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.trends {
+    display: flex;
+    height: 516px;
+    width: 100%;
+    background-color: #ececec;
+    .right {
+        position: relative;
+        display: flex;
+        min-width: 250px;
+        flex-basis: 250px;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: 25px 60px;
+        .btn {
+            border-radius: 8px;
+            border: 1px solid white;
+            position: absolute;
+            bottom: 30px;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+            color: white;
+            padding: 8px 15px;
+            .flasher {
+                font-size: 12px;
+                margin-right: 18px;
+                margin-left: 12px;
+            }
+        }
+    }
+    .left {
+        display: flex;
+        flex-grow: 1;
+        padding: 16px;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+        transition: 0.5s;
+        .slideshow-box {
+            display: flex;
+            width: 1054px;
+            padding: 0 0px;
+            transition: 0.5s;
+            scroll-behavior: smooth;
+            overflow: hidden;
+            .prev1,
+            .next1 {
+                cursor: pointer;
+                position: absolute;
+                top: 40%;
+                width: auto;
+                padding: 16px;
+                margin-top: -22px;
+                color: black;
+                font-weight: bold;
+                font-size: 30px;
+                box-shadow: -1.5px 0 4px rgba(104, 104, 104, 0.315);
+                border-radius: 5px 0 0 5px;
+                transition: 0.6s ease;
+                user-select: none;
+            }
+            /* Position the "next button" to the right */
+            .next1 {
+                right: 1028px;
+                border-radius: 0px 5px 5px 0px;
+                box-shadow: 1.5px 0 4px rgba(104, 104, 104, 0.315);
+            }
+            /* On hover, add a black background color with a little bit see-through */
+            .prev1:hover,
+            .next1:hover {
+                background-color: #919090;
+            }
+        }
+        .card {
+            cursor: pointer;
+            height: 438px;
+            border-radius: 12px;
+            min-width: 256px;
+            margin-left: 10px;
+            background-color: #fff;
+            color: rgb(97, 97, 97);
+            .btn {
+                border: #00bfd6 solid thin;
+                position: absolute;
+                top: 160px;
+                right: 90px;
+                border-radius: 50px;
+                width: 70px;
+                height: 70px;
+            }
+            img {
+                height: 225px;
+                border-radius: 12px;
+                font-family: yekan;
+            }
+            .card-body .percent {
+                position: absolute;
+                padding: 2px 8px;
+                left: 20px;
+                bottom: 65px;
+                color: white;
+                background-color: $red;
+                font-weight: bold;
+                border-radius: 50px;
+            }
+            .old-price {
+                position: relative;
+                margin-left: 60px;
+                margin-top: 30px;
+                text-decoration: line-through;
+                color: #a49f9f;
+            }
+            .new-price {
+                span {
+                    font-weight: bold;
+                    color: black!important;
+                    font-size: 20px !important;
+                }
+            }
+            .btn {
+                span {
+                    position: absolute;
+                    top: 90px;
+                    width: 200px;
+                }
+            }
+        }
+    }
+}
+
+//.trends .left .btn .flasher {
+//    color: #00bfd6;
+//    font-size: 40px;
+//}
+
+// Style haye slide show 
+.mySlides {
+    display: none;
+    overflow: hidden;
+    height: 100%;
+    img {
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white !important;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    font-size: 26px !important;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+}
+
+.prev:hover,
+.next:hover {
+    color: #ffba1f !important;
+}
+
+.dotbox {
+    position: absolute;
+    bottom: 25px;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    background-color: #fff;
+    margin: 0 5px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+//.active,
+//.dot:hover {
+//    background-color: #00bfd6;
+//}
+
+
+/* Fading animation */
+
+.fades {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
